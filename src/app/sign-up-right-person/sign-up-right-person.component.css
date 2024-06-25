@@ -1,0 +1,151 @@
+@import "../app.component.css";
+.signinbt {
+  display: block;
+  width: 200px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the button horizontally */
+  padding: 10px 20px; /* Add padding */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.signinbt:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+.displayInfo {
+  display: block;
+  text-align: -webkit-center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.displayInfo .imghome {
+  max-width: 100%; /* Ensure the image doesn't exceed the container width */
+  max-height: auto; /* Ensure the image doesn't exceed the container height */
+}
+
+
+
+
+
+/**/
+.inscriptionemployerbtn {
+  transition: background-color .3s, box-shadow .3s;
+margin: 20px 0 0 0;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+  background-color: #00635c;
+  color: white;
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow:
+      0 -1px 0 rgba(0, 0, 0, .04),
+      0 2px 4px rgba(0, 0, 0, .25),
+      0 0 0 3px #c8dafc;
+  }
+
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    cursor: not-allowed;
+  }
+}
+
+
+#signinanimation{
+  background-color: rgba(0, 128, 0, 0.473);
+  border-top-left-radius: 800px;
+  border-top-right-radius: 500px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 500px;
+  padding: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+
+}
+.btn button{
+  margin: 5px;
+}
+
+
+/**************************/
+.cardcompany {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 746px;
+  margin: 10px ;
+}
+
+/* Logo styling */
+.companyLogo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-height: 200px;
+  max-width: 400px;
+}
+
+/* Company name styling */
+.companyName h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Info section styling */
+.infocompany h4 {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Description styling */
+.descriptioncompany h6 {
+  font-size: 16px;
+  color: #444;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.textareainscription {
+  white-space: pre-wrap; /* Allows text to wrap and preserves whitespace */
+  box-sizing: border-box;
+}
+#CompanyDescriptionInput{
+  margin: 20px 0 0px 0;
+}

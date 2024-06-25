@@ -1,0 +1,207 @@
+<h1 class="headerinscription">Inscription Employer</h1>
+<div class="content">
+
+  <!--insert info like cv-->
+  <div class="insertInfo" >
+
+  <div [ngStyle]="{ 'display': signin ? 'none' : 'block'}"  class="form-container">
+    <div class="titleofstep">
+    <h3 class="steptitle">Company Information</h3>
+  </div>
+    <div class="form-group">
+      <div class="form-field" >
+        <label class="titleLable">Company Name</label>
+        <div class="input-container"  >
+          <input [ngStyle]="{'border': CompanyNamerror ? '1px solid #ff0000' : '1px solid #ccc'}"  required   required type="text" placeholder="First Name"  [(ngModel)]="CompanyName" (input)="checkCompanyName()">
+          <div *ngIf="CompanyNamerror" class="error-message">First Name is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">type</label>
+        <div class="input-container">
+         <!--<select name="cars" id="cars">
+            <option value="">Select...</option>
+            <option value="fullTime">full time</option>
+            <option value="Internshep">Internshep</option>
+            <option value="Teaching">Teaching</option>
+            <option value="Board">Board</option>
+          </select>
+        -->
+        <select [ngStyle]="{'border': typeError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCompanytype()" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="typeCompany">
+          <option value="" selected>Select...</option>
+          <option value="Startups">Startups</option>
+          <option value="International Corporations">International Corporations</option>
+          <option value="Small and Medium-sized Enterprise (SME)">Small and Medium-sized Enterprise (SME)</option>
+          <option value="Government Agency">Government Agency</option>
+          <option value="Educational Institution">Educational Institution</option>
+          <option value="Manufacturing Company">Manufacturing Company</option>
+          <option value="Service Provider">Service Provider</option>
+          <option value="Technology Company">Technology Company</option>
+          <option value="Retail Chain">Retail Chain</option>
+        </select>
+        <div *ngIf="typeError" class="error-message">type is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Country</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': Countryerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="Country" type="email" [(ngModel)]="ContryCompany" (input)="checkContryCompany()">
+          <div *ngIf="Countryerror" class="error-message">Contry is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label  class="titleLable">City</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': Cityerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="City" type="tel" id="contact-information_phone" class="input-success" [(ngModel)]="CityCompany" (input)="checkCity()">
+          <div *ngIf="Cityerror" class="error-message">City number is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Website</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': Websiteerror ? '1px solid #ff0000' : '1px solid #ccc'}"  required  placeholder="Website" id="contact-information_linked_in" class="input-success" type="email" [(ngModel)]="WebsiteCompany" (input)="checkWebsite()" >
+          <div *ngIf="Websiteerror" class="error-message">Website is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label  class="titleLable">Image</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': imageError ? '1px solid #ff0000' : '1px solid #ccc'}"  required   id="contact-information_image" class="input-success" type="file" (change)="onFileSelected($event)" style="border: none; display: none;" [(ngModel)]="Image" (input)="checkImage()" >
+          <label for="contact-information_image" class="custom-file-upload">Upload Image</label>
+          <div *ngIf="imageError" class="error-message">Image is required</div>
+        </div>
+      </div>
+    </div>
+
+    <label class="titleLable">Add Company Description</label>
+    <div class="CompanyDescription" >
+      <textarea wrap="soft" [ngStyle]="{'border': CompanyDescriptionError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCompanyDescription()"  class="textareainscription"   id="CompanyDescriptionInput" rows="5" maxlength="500" placeholder="Enter your professional  Company Description..." [(ngModel)]="CompanyDescription"></textarea>
+      <div *ngIf="CompanyDescriptionError" class="error-message">Company escription is required</div>
+    </div>
+    <button type="button" class="inscriptionemployerbtn" (click)="nextstep()" >
+      next step
+    </button>
+
+
+
+</div>
+<div  id="signinanimation" [ngStyle]="{ 'display': signin ? 'block' : 'none'}" >
+
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div style="padding: 0 80px;" class="form-container">
+            <div class="row justify-content-center">
+              <div style="width: 100%;" class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="titleofstep">
+                <p class="steptitle">Sign up</p>
+                </div>
+
+
+
+
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input    type="text" id="form3Example1c" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input   type="email" id="form3Example3c" class="form-control" />
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input [ngStyle]="{'border': PasswordError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsPassword()" type="password" id="form3Example4c" class="form-control" />
+                      <div *ngIf="PasswordError" class="error-message">Password is required</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input [ngStyle]="{'border': RepeatpasswordError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsRepeatpassword()" type="password" id="form3Example4cd" class="form-control" />
+                      <div *ngIf="RepeatpasswordError" class="error-message">Repeat your password is required</div>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+                  <div class="btn">
+                  <button  type="button" class="inscriptionemployerbtn" (click)="preveiw()" >
+                    Preview
+                  </button>
+                  <button type="button" class="inscriptionemployerbtn" >
+                    Inscrire
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+<div  class="displayInfo  overflow-auto"  >
+<div class="cardcompany"  [ngStyle]="{'display':
+
+CompanyName.trim() != '' || ContryCompany.trim() != '' || CityCompany.trim() != '' || WebsiteCompany.trim() != ''
+
+|| typeCompany.trim() != '' || CompanyDescription.trim() != '' || selectedImage.trim() != ''
+
+? 'block' : 'none'}">
+  <div  class="companyLogo" >
+    <div *ngIf="selectedImage">
+      <img [src]="selectedImage" alt="Selected Image" >
+    </div>
+
+  </div>
+
+  <div class="companyName">
+      <h1>{{CompanyName}}</h1>
+  </div>
+
+  <div class="infocompany">
+    <h4>{{ContryCompany}}  {{CityCompany}}  <a target="_blank" href="{{WebsiteCompany}}">{{WebsiteCompany}}</a></h4>
+  </div>
+
+  <div class="descriptioncompany" style="width: 100%;">
+       <h6 ><span style="color: green;">{{typeCompany}}</span> {{CompanyDescription}}</h6>
+  </div>
+
+</div>
+
+
+  <img class="imghome" src="../../assets/images/signinrightPerson.png" alt="" [ngStyle]="{'display':
+
+  CompanyName.trim() != '' || ContryCompany.trim() != '' || CityCompany.trim() != '' || WebsiteCompany.trim() != ''
+
+  || typeCompany.trim() != '' || CompanyDescription.trim() != '' || selectedImage.trim() != ''
+
+  ? 'none'  : 'block'}">
+</div>
+</div>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

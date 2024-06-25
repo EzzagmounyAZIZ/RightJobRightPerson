@@ -1,0 +1,960 @@
+<h1 class="headerinscription">Inscription Employee</h1>
+<!--
+<div class="progress">
+  <div class="progress-bar" role="progressbar"  [style.width]="calculateWidth()" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>-->
+<div class="progress">
+  <div class="stepline"   >
+  <div class="step" >Inf</div>
+  <div class="line"></div>
+</div>
+<div class="stepline"  >
+  <div class="step" >Tar</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Sum</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Exp</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Edu</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Cer</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Ski</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"   >
+  <div class="step">Lan</div>
+  <div class="line"></div>
+</div>
+<div class="stepline"   >
+  <div class="step">Hob</div>
+  <div class="line"></div>
+</div>
+  <div class="stepline"  >
+  <div class="step" >Sig</div>
+</div>
+</div>
+<div class="content">
+
+<!--insert info like cv-->
+<div class="insertInfo" >
+
+<!--  Contact Information    -->
+<div *ngIf="step == 'step0'">
+<div class="form-container">
+  <div class="titleofstep">
+  <h3 class="steptitle">Contact Information</h3>
+</div>
+  <div class="form-group">
+    <div class="form-field" >
+      <label class="titleLable">First Name</label>
+      <div class="input-container"  >
+        <input [ngStyle]="{'border': firstNamerror ? '1px solid #ff0000' : '1px solid #ccc'}"  required   required type="text" placeholder="First Name"  [(ngModel)]="firstName" (input)="checkFirstName()">
+        <div *ngIf="firstNamerror" class="error-message">First Name is required</div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="titleLable">Last Name</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': lastNamerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="Last Name" type="text" [(ngModel)]="lastName" (input)="checkLastName()">
+        <div *ngIf="lastNamerror" class="error-message">Last Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-field">
+      <label class="titleLable">Email</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': emailerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="Email" type="email" [(ngModel)]="email" (input)="checkEmail()">
+        <div *ngIf="emailerror" class="error-message">Email is required</div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label  class="titleLable">Phone Number</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': phonerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="Phone Number" type="tel" id="contact-information_phone" class="input-success" [(ngModel)]="tel" (input)="checkPhone()">
+        <div *ngIf="phonerror" class="error-message">phone number is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-field">
+      <label class="titleLable">LinkedIn</label>
+      <div class="input-container">
+        <input  required  placeholder="LinkedIn" id="contact-information_linked_in" class="input-success" type="email" [(ngModel)]="linkedIn" >
+      </div>
+    </div>
+    <div class="form-field">
+      <label  class="titleLable">Image</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': imageError ? '1px solid #ff0000' : '1px solid #ccc'}"  required   id="contact-information_image" class="input-success" type="file" (change)="onFileSelected($event)" style="border: none; display: none;" [(ngModel)]="Image" (input)="checkImage()" >
+        <label for="contact-information_image" class="custom-file-upload">Upload Image</label>
+        <div *ngIf="imageError" class="error-message">Image is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-field">
+      <label class="titleLable">Address</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': addresserror ? '1px solid #ff0000' : 'none'}" required  placeholder="Address" id="contact-information_address" class="input-success" type="text" [(ngModel)]="Address" (input)="checkAddress()">
+        <div *ngIf="addresserror" class="error-message">Address is required</div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="titleLable">country </label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': countryerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="country" id="contact-information_country" class="input-success" type="text" [(ngModel)]="Country" (input)="checkCountry()">
+        <div *ngIf="countryerror" class="error-message">countryerror is required</div>
+      </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="form-field">
+      <label class="titleLable">city</label>
+      <div class="input-container">
+        <input [ngStyle]="{'border': cityerror ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="city" id="contact-information_city" class="input-success" type="text" [(ngModel)]="City" (input)="checkCity()">
+        <div *ngIf="cityerror" class="error-message">city is required</div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="titleLable">Website</label>
+      <div class="input-container">
+        <input required   placeholder="Website" id="contact-information_website" class="input-success" type="text" [(ngModel)]="Website">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--  Target Titles    -->
+
+<div  *ngIf="step == 'step1'">
+  <div class="form-container">
+    <div class="titleofstep">
+      <h3 class="steptitle">Target Titles</h3>
+    </div>
+        <label class="titleLable">Add Target Title</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': TargetTitleError ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="Target Title" type="text" [(ngModel)]="TargetTitle" (input)="checkTargetTitle()">
+          <div *ngIf="TargetTitleError" class="error-message">Target Title is required</div>
+        </div>
+
+
+  <div class="notification">
+    <div class="notiglow"></div>
+    <div class="notiborderglow"></div>
+    <div class="notititle">Info</div>
+    <div class="notibody">Craft a Target Title that succinctly reflects your professional expertise, career aspirations, and the value you bring to potential employers.</div>
+  </div>
+</div>
+
+</div>
+
+<!--  Professional Summaries    -->
+
+ <div *ngIf="step == 'step2'">
+  <div class="form-container">
+
+    <div class="titleofstep">
+      <h3 class="steptitle">Professional Summaries</h3>
+    </div>
+        <label class="titleLable">Add Professional Summarie</label>
+
+  <div class="Summaries">
+    <textarea [ngStyle]="{'border': ProfessionalSummariesError ? '1px solid #ff0000' : '1px solid #ccc'}"  class="textareainscription" id="summaryInput" rows="5" maxlength="500" placeholder="Enter your professional summary..." [(ngModel)]="ProfessionalSummarie" (input)="checkProfessionalSummarie()"></textarea>
+    <div *ngIf="ProfessionalSummariesError" class="error-message">Professional Summarie is required</div>
+  </div>
+</div>
+
+</div>
+
+<!--  Work Experience    -->
+<div *ngIf="step == 'step3'">
+  <div class="titleofstep">
+    <h3 class="steptitle">Work Experience</h3>
+  </div>
+
+
+
+  <div  [ngStyle]="{'background-color': workExperienceVisibility[i] ? '#ffffff' : '#EEE7DA' }" class="WorkExperience"  *ngFor="let workExperience of workExperiences; let i = index">
+
+
+
+ <div class="contentWorkExperience">
+  <div style="margin: 0 35px;" class="form-container">
+    <h4  class="headcloseopenexperience" (click)="toggleWorkExperienceVisibility(i)">Work Experience <span style="color: green; font-family: Georgia, 'Times New Roman', Times, serif;">{{i + 1}}</span> <mat-icon>arrow_drop_down</mat-icon></h4>
+    <div  [ngStyle]="{ 'display': workExperienceVisibility[i] ? 'block' : 'none'}" class="contentWorkExperienceCloseOpen">
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Company Name</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': companynameError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperienceCompanyName(i)" type="text"  [(ngModel)]="workExperience.companyName">
+          <div *ngIf="companynameError[i]" class="error-message">Company Name is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">Position</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': PositionError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperiencePosition(i)" type="text" [(ngModel)]="workExperience.position">
+          <div *ngIf="PositionError[i]" class="error-message">Position is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Location</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': LocationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperienceLocation(i)" type="text"  [(ngModel)]="workExperience.location">
+          <div *ngIf="LocationError[i]" class="error-message">Location is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">type</label>
+        <div class="input-container">
+         <!--<select name="cars" id="cars">
+            <option value="">Select...</option>
+            <option value="fullTime">full time</option>
+            <option value="Internshep">Internshep</option>
+            <option value="Teaching">Teaching</option>
+            <option value="Board">Board</option>
+          </select>
+        -->
+        <select [ngStyle]="{'border': TypeExperienceError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperiencetype(i)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="workExperience.TypeExperience">
+          <option value=""  disabled selected>Select...</option>
+          <option value="Internship">Internship</option>
+          <option value="Apprenticeship">Apprenticeship</option>
+          <option value="Full-time (CDI)">Full-time Employment (CDI)</option>
+          <option value="Fixed-term (CDD)">Fixed-term Contract (CDD)</option>
+          <option value="Temporary (Interim)">Temporary Employment (Interim)</option>
+          <option value="Part-time">Part-time Employment</option>
+        </select>
+        <div *ngIf="TypeExperienceError[i]" class="error-message">type is required</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Start Date</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': StartDateError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperienceStartDate(i)"
+          type="date" placeholder="Start Date"
+          [(ngModel)]="workExperience.startDate"
+          class="my-custom-date-input"
+          placeholder="Select a date"
+        >
+        <div *ngIf="StartDateError[i]" class="error-message">Start Date is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">End Date</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': EndDateError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperienceEndDate(i)" placeholder="End Date" type="date" [(ngModel)]="workExperience.endDate">
+          <div *ngIf="EndDateError[i]" class="error-message">End Date is required</div>
+        </div>
+      </div>
+    </div>
+
+
+    <label class="titleLable">Add Company Description</label>
+    <div class="CompanyDescription" >
+      <textarea [ngStyle]="{'border': CompanyDescriptionError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsexperienceCompanyDescription(i)"  class="textareainscription"   id="CompanyDescriptionInput" rows="5" maxlength="500" placeholder="Enter your professional  Company Description..." [(ngModel)]="workExperience.companyDescription"></textarea>
+      <div *ngIf="CompanyDescriptionError[i]" class="error-message">Company escription is required</div>
+    </div>
+
+
+    <!-- | -->
+<button class="button_moin"  (click)="deleteWorkExperience(i)">Delete</button>
+
+
+  </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div>
+<button class="button_plus" (click)="addWorkExperience()"></button>
+</div>
+</div>
+
+
+<!--<div class="checkbox-wrapper-56">
+      <label class="container">
+        <input checked="checked" type="checkbox">
+        <div class="checkmark"></div>
+      </label>
+    </div>-->
+
+
+<!--   Education    -->
+<div *ngIf="step == 'step4'">
+
+  <div class="titleofstep">
+    <h3 class="steptitle">Educations</h3>
+  </div>
+
+
+
+  <div  [ngStyle]="{'background-color': workEducationVisibility[i] ? '#ffffff' : '#EEE7DA' }" class="WorkExperience"  *ngFor="let education of education; let i = index">
+
+
+
+ <div class="contentWorkExperience">
+  <div style="margin: 0 35px;" class="form-container">
+    <h4  class="headcloseopenexperience" (click)="toggleEducationVisibility(i)">Education <span style="color: green; font-family: Georgia, 'Times New Roman', Times, serif;">{{i + 1}}</span> <mat-icon>arrow_drop_down</mat-icon></h4>
+    <div  [ngStyle]="{ 'display': workEducationVisibility[i] ? 'block' : 'none'}" class="contentWorkExperienceCloseOpen">
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Institution Name</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': InstitutionNameError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationsInstitutionName(i)" type="text"  [(ngModel)]="education.InstitutionName">
+          <div *ngIf="InstitutionNameError[i]" class="error-message">Institution Name is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">Field of Study/Major </label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': StudyError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationsStudy(i)" type="text" [(ngModel)]="education.Study">
+          <div *ngIf="StudyError[i]" class="error-message">Field of Study/Major is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Location</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': locationEducationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationslocation(i)" type="text"  [(ngModel)]="education.locationEducation">
+          <div *ngIf="locationEducationError[i]" class="error-message">Location is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">type</label>
+        <div class="input-container">
+         <!--<select name="cars" id="cars">
+            <option value="">Select...</option>
+            <option value="fullTime">full time</option>
+            <option value="Internshep">Internshep</option>
+            <option value="Teaching">Teaching</option>
+            <option value="Board">Board</option>
+          </select>
+        -->
+        <select [ngStyle]="{'border': typeEducationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationstype(i)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="education.typeEducation">
+          <option value="" disabled selected>Select...</option>
+          <option value="Bachelor's">Bachelor's Degree</option>
+          <option value="Associate">Associate Degree (2-Year Program)</option>
+          <option value="License">Professional License</option>
+          <option value="Master's">Master's Degree</option>
+          <option value="Doctorate">Doctorate (Ph.D.)</option>
+        </select>
+        <div *ngIf="typeEducationError[i]" class="error-message">Type is required</div>
+      </div>
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Start Date</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': startDateEducationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationsstartDate(i)"
+          type="date" placeholder="Start Date"
+          [(ngModel)]="education.startDateEducation"
+          class="my-custom-date-input"
+          placeholder="Select a date"
+        >
+        <div *ngIf="startDateEducationError[i]" class="error-message">start date is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">End Date</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': endDateEducationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEducationsendDate(i)" placeholder="End Date" type="date" [(ngModel)]="education.endDateEducation">
+          <div *ngIf="endDateEducationError[i]" class="error-message">end date is required</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- | -->
+<button class="button_moin"  (click)="deleteEducation(i)">Delete</button>
+
+
+  </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div>
+<button class="button_plus" (click)="addEducation()"></button>
+</div>
+
+
+</div>
+<!--   Certifications and Courses   -->
+<div *ngIf="step == 'step5'">
+
+  <div class="titleofstep">
+    <h3 class="steptitle">Certifications and Courses</h3>
+  </div>
+
+
+
+  <div  [ngStyle]="{'background-color': CertificationsVisibility[i] ? '#ffffff' : '#EEE7DA' }" class="WorkExperience"  *ngFor="let Certifications of certification; let i = index">
+
+
+
+ <div class="contentWorkExperience">
+  <div style="margin: 0 35px;" class="form-container">
+    <h4  class="headcloseopenexperience" (click)="toggleCertificationsVisibility(i)">Certification & Course <span style="color: green; font-family: Georgia, 'Times New Roman', Times, serif;">{{i + 1}}</span> <mat-icon>arrow_drop_down</mat-icon></h4>
+    <div  [ngStyle]="{ 'display': CertificationsVisibility[i] ? 'block' : 'none'}" class="contentWorkExperienceCloseOpen">
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Certifications Name</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': CertificationsNameError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCertificationsName(i)" type="text"  [(ngModel)]="Certifications.certificationName">
+          <div *ngIf="CertificationsNameError[i]" class="error-message">Certifications Name is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">organization or institution </label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': organizationError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCertificationorganization(i)" type="text" [(ngModel)]="Certifications.organization">
+          <div *ngIf="organizationError[i]" class="error-message">organization or institution is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Date of Completion</label>
+        <div class="input-container">
+          <input [ngStyle]="{'border': CompletionError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCertificationCompletion(i)"
+          type="date" placeholder="Date of Completion"
+          [(ngModel)]="Certifications.dateOfCompletion"
+          class="my-custom-date-input"
+          placeholder="Select a date"
+        >
+        <div *ngIf="CompletionError[i]" class="error-message">Date of Completion is required</div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <!-- | -->
+<button class="button_moin"  (click)="deleteCertification(i)">Delete</button>
+
+
+  </div>
+
+
+  </div>
+</div>
+
+
+</div>
+<div>
+<button class="button_plus" (click)="addCertification()"></button>
+</div>
+
+
+</div>
+<!--   Skills     -->
+<div *ngIf="step == 'step6'">
+
+  <div class="form-container">
+
+  <div class="titleofstep">
+      <h3  class="steptitle">Skills</h3>
+    </div>
+      <div class="input-container">
+<div class="skills">
+  <div class="addskill">
+    <input [ngStyle]="{'border': newSkillError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsSkills()" [style.border]="isDuplicate ? '1px solid red' : 'none'"  style="width: 80%; margin: 20px; " type="text" [(ngModel)]="newSkill" (keydown.enter)="addSkill()">
+    <div *ngIf="isDuplicate" style="color: red;">Skill is already used</div>
+    <div *ngIf="newSkillError" class="error-message">Skills is required</div>
+
+  </div>
+
+  <div class="notification" style="height: 5rem;">
+    <div class="notiglow"></div>
+    <div class="notiborderglow"></div>
+    <div class="notititle">Info</div>
+    <div class="notibody">Record just one skill and click Enter.</div>
+  </div>
+
+    <div class="form-field">
+      <div class="input-container">
+  <div style="width: 80%; margin: 20px; color: white;" class="skillsAdded">
+  <div  *ngFor="let skill of skills; let i = index">
+    <span>{{ skill }}</span>
+    <button (click)="removeSkill(i)">x</button>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--   Languages   -->
+<div *ngIf="step == 'step7'">
+
+
+  <div class="titleofstep">
+    <h3 class="steptitle">Languages</h3>
+  </div>
+
+
+
+  <div  [ngStyle]="{'background-color': LanguagesVisibility[i] ? '#ffffff' : '#EEE7DA' }" class="WorkExperience"  *ngFor="let Langage of Languages; let i = index">
+
+
+
+ <div class="contentWorkExperience">
+  <div style="margin: 0 35px;" class="form-container">
+    <h4  class="headcloseopenexperience" (click)="toggleLanguagesVisibility(i)">Languages <span style="color: green; font-family: Georgia, 'Times New Roman', Times, serif;">{{i + 1}}</span> <mat-icon>arrow_drop_down</mat-icon></h4>
+    <div  [ngStyle]="{ 'display': LanguagesVisibility[i] ? 'block' : 'none'}" class="contentWorkExperienceCloseOpen">
+    <div class="form-group">
+      <div class="form-field">
+        <label class="titleLable">Language</label>
+        <div class="input-container">
+          <select [ngStyle]="{'border': LanguageError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsLanguage(i)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="Langage.langage">
+            <option value="" disabled selected>Select Language...</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+          </select>
+          <div *ngIf="LanguageError[i]" class="error-message">Language is required</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="titleLable">Level </label>
+        <div class="input-container">
+          <select [ngStyle]="{'border': LevelError[i] ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsLevel(i)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="Langage.Level">
+            <option value="" disabled selected>Select Level...</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <div *ngIf="LevelError[i]" class="error-message">Level is required</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- | -->
+    <button class="button_moin"  (click)="deleteLanguage(i)">Delete</button>
+
+    </div>
+
+
+
+
+  </div>
+
+
+  </div>
+
+
+</div>
+<button class="button_plus" (click)="addLanguage()"></button>
+
+
+</div>
+
+
+
+
+<!--   Interests and Hobbies   -->
+<div *ngIf="step == 'step8'">
+
+  <div class="form-container">
+
+    <div class="titleofstep">
+        <h3  class="steptitle">Interests and Hobbies</h3>
+      </div>
+        <div class="input-container">
+  <div class="skills">
+    <div class="addskill">
+      <input [ngStyle]="{'border': InterestsHobbiesError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsInterestsAndHobbies()" [style.border]="InterestsisDuplicate ? '1px solid red' : 'none'"  style="width: 80%; margin: 20px; " type="text" [(ngModel)]="newInterests" (keydown.enter)="addInterests()">
+      <div *ngIf="InterestsisDuplicate" style="color: red;">Interests is already used</div>
+      <div *ngIf="InterestsHobbiesError" class="error-message">Interests and Hobbies is required</div>
+    </div>
+    <div class="notification" style="height: 5rem;">
+      <div class="notiglow"></div>
+      <div class="notiborderglow"></div>
+      <div class="notititle">Info</div>
+      <div class="notibody">Record just one Interests Or Hobbies and click Enter.</div>
+    </div>
+      <div class="form-field">
+        <div class="input-container">
+    <div style="width: 80%; margin: 20px; color: white;" class="skillsAdded">
+    <div  *ngFor="let Interest of Interests; let i = index">
+      <span>{{ Interest }}</span>
+      <button (click)="removeInterests(i)">x</button>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+</div>
+<!--  inscription Information    -->
+<div *ngIf="step == 'step9'">
+
+
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div style="padding: 0 80px;" class="form-container">
+              <div class="row justify-content-center">
+                <div style="width: 100%;" class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <div class="titleofstep">
+                  <p class="steptitle">Sign up</p>
+                  </div>
+
+
+                    <button type="button" class="login-with-google-btn" >
+                      Sign in with Google
+                    </button>
+
+                    <div class="horizontal-divider">
+                      <div class="center-element">OR</div>
+                    </div>
+
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example1c">Your Name</label>
+                        <input readonly value="{{firstName}} {{lastName}}"   type="text" id="form3Example1c" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example3c">Your Email</label>
+                        <input readonly value="{{email}}" type="email" id="form3Example3c" class="form-control" />
+
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example4c">Password</label>
+                        <input  [ngStyle]="{'border': PasswordError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsPassword()" type="password" id="form3Example4c" class="form-control" [(ngModel)]="password" />
+                        <div *ngIf="PasswordError" class="error-message">Password is required</div>
+                        <div *ngIf="passwordiseasy" class="error-message">your password is not strong enough</div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                        <input [ngStyle]="{'border': RepeatpasswordError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsRepeatpassword()" type="password" id="form3Example4cd" class="form-control" [(ngModel)]="confermedpassword" />
+                        <div *ngIf="RepeatpasswordError" class="error-message">Repeat your password is required</div>
+                        <div *ngIf="confermedpasswordnotcorrect" class="error-message">your confermed password is not correct</div>
+                      </div>
+                    </div>
+
+                   <!--
+
+                    passwordiseasy =false;
+
+confermedpasswordnotcorrect =false;
+
+
+                    <div class="form-check d-flex justify-content-center mb-5">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                      <label class="form-check-label" for="form2Example3">
+                        I agree all statements in <a href="#!">Terms of service</a>
+                      </label>
+                    </div>-->
+
+
+
+
+
+                </div>
+
+              </div>
+            </div>
+
+      </div>
+    </div>
+
+
+<!--    -->
+</div>
+
+<div class="buttomNextPrevious">
+  <div class="previous">
+    <button [style.display]="step === 'step0'  ? 'none' : 'block'" (click)="previousStep()">&laquo; Previous</button>
+  </div>
+  <div class="next">
+    <button [style.display]="step == 'step9' ? 'none' : 'block'"  (click)="areAllFieldsFilled(step)" >Next &raquo;</button>
+  </div>
+  <div class="Inscript" >
+    <button  [style.display]="step == 'step9' ? 'block' : 'none'" (click)="InscriptStep()">Inscript</button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--display Info like cv-->
+<!--CV-->
+<div  class="displayInfo  overflow-auto" style="margin: 0; padding: 0;" >
+
+<div class="headerCV" >
+  <div class="contentHeader" >
+
+
+<div class="imageCV"  >
+  <div *ngIf="selectedImage">
+    <img [src]="selectedImage" alt="Selected Image" >
+  </div>
+
+</div>
+
+<div class="ItemesHeader">
+  <div class="Item1">
+    <h1>{{firstName}}  {{lastName}}</h1>
+  </div>
+  <div class="Item2">
+   <h4>{{TargetTitle}}</h4>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="bodyCV">
+<!--
+  <div class="grid-container">
+
+    <div class="stepLogo">logo</div>
+    <div class="stepLine">
+
+
+
+    </div>
+    <div class="stepContent">Main</div>
+  </div>
+
+-->
+  <div class="wrapper">
+
+<!--Professional Summary: -->
+    <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>perm_identity</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Summary</h3>
+        <p class="summaryContent">
+          {{ProfessionalSummarie}}
+        </p>
+
+        </div>
+    </div>
+<!--Work Experience-->
+      <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>work</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Work Experience</h3>
+       <div *ngFor="let experience of workExperiences; let i = index">
+        <h4>{{ experience.position }}</h4>
+        <h5>{{ experience.companyName }}</h5>
+        <h6>{{ experience.startDate }} To {{ experience.endDate }} {{ experience.TypeExperience }}</h6>
+        <h6>{{ experience.location }} </h6>
+        <p class="summaryContent">{{ experience.companyDescription }}</p>
+      </div>
+        </div>
+    </div>
+<!--Education:-->
+     <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>school</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Education</h3>
+       <div *ngFor="let education of education; let i = index">
+        <h4>{{ education.InstitutionName }}</h4>
+        <h5>{{ education.typeEducation }}</h5>
+        <h6>{{ education.startDateEducation }} To {{ education.endDateEducation }}</h6>
+        <h6>{{ education.locationEducation }} </h6>
+      </div>
+        </div>
+    </div>
+<!--   Certifications and Courses   -->
+    <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>grade</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Certifications and Courses</h3>
+
+        </div>
+    </div>
+<!--   Skills     -->
+    <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>build</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Skills</h3>
+
+          <div style="display: flex; flex-wrap: wrap;">
+            <div *ngFor="let skill of skills; let i = index" style="margin-right: 10px;">
+
+                <h5 ><svg width="24px" stroke-width="1.5" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M8 18C8 20.4148 9.79086 21 12 21C15.7587 21 17 18.5 14.5 13.5C11 18 10.5 11 11 9C9.5 12 8 14.8177 8 18Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 21C17.0495 21 20 18.0956 20 13.125C20 8.15444 12 3 12 3C12 3 4 8.15444 4 13.125C4 18.0956 6.95054 21 12 21Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ skill }}</h5>
+
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+
+
+
+<!--   Languages   -->
+    <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>language</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Languages</h3>
+        <div *ngFor="let Languages of Languages; let i = index">
+        <h5><svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M19 7C17.8954 7 17 6.10457 17 5C17 3.89543 17.8954 3 19 3C20.1046 3 21 3.89543 21 5C21 6.10457 20.1046 7 19 7Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 15.5C7 14.5 9.5 15 12 20C12.5 17 14 12.5 15.5 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{Languages.langage}} <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>{{Languages.Level}}</h5>
+      </div>
+        </div>
+    </div>
+
+
+    <!--   Interests and Hobbies   -->
+    <div class="contentCV">
+      <div class="circle-contentCV">
+        <div class='circle'><mat-icon>extension</mat-icon></div>
+      </div>
+
+      <div class="text">
+        <h3 class="titleStepCV">Interests and Hobbies</h3>
+        <div style="display: flex; flex-wrap: wrap;">
+          <div *ngFor="let Interests of Interests; let i = index" style="margin-right: 10px;">
+
+              <h5 ><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M13 21H5C3.89543 21 3 20.1046 3 19V10H21V13M15 4V2M15 4V6M15 4H10.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 10V6C3 4.89543 3.89543 4 5 4H7" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 2V6" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 10V6C21 4.89543 20.1046 4 19 4H18.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.9922 18H17.9922M21 18H17.9922M17.9922 18V15M17.9922 18V21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ Interests }}</h5>
+
+          </div>
+
+
+      </div>
+        </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="footerCV">
+
+  <div class="form-container">
+    <h3>Contact Information</h3>
+    <div class="form-group">
+      <div class="form-field">
+        <label>{{Country}}</label>
+      </div>
+      <div class="form-field">
+        <label>{{City}}</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label>{{Address}}</label>
+      </div>
+      <div class="form-field">
+        <label>{{email}}</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label>{{tel}}</label>
+      </div>
+      <div class="form-field">
+        <label>{{linkedIn}}</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label>{{Website}}</label>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+</div>
+
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

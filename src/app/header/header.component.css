@@ -1,0 +1,95 @@
+/*.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 60px;
+  cursor: pointer;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  margin-left: 20px;
+}
+
+.navigation button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation button:hover {
+  background-color: gainsboro;
+  color: white;
+  font-weight: bold;
+  border-radius: 14px;
+}*/
+/* Base styles for the header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #fff;
+  padding: 30px 20px;
+  margin: 17px;
+  height: 60px;
+  box-shadow: 235px 2px 12px rgb(0 0 0 / 17%), 2px 2px 12px rgb(0 0 0 / 8%);
+}
+
+/* Logo styles */
+.logo img {
+    height: 205px;
+    width: 228px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Slightly enlarge logo on hover */
+}
+
+/* Navigation styles */
+.navigation ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  margin-left: 20px;
+}
+
+/* Button styles */
+.navigation button {
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text color */
+  border: 2px solid transparent; /* Transparent border for a clean look */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for multiple properties */
+  border-radius: 5px; /* Rounded corners for buttons */
+}
+
+.navigation button:hover {
+  background-color: #00635c; /* Darker background on hover */
+  color: #fff; /* White text color on hover */
+  border-color: #fff; /* White border on hover */
+  font-weight: bold;
+  border-radius: 14px; /* More pronounced rounded corners on hover */
+}

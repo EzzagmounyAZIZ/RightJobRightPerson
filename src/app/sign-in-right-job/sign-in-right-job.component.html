@@ -1,0 +1,62 @@
+<h1 class="headerinscription">Sign In Right Job</h1>
+<div class="content">
+
+  <!--insert info like cv-->
+  <div class="insertInfo" >
+<div class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div style="padding: 0 80px;" class="form-container">
+          <div class="row justify-content-center">
+            <div style="width: 100%;" class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+              <div class="titleofstep">
+              <p class="steptitle">Sign in</p>
+              </div>
+                <button type="button" class="login-with-google-btn" >
+                  Sign in with Google
+                </button>
+
+                <div class="horizontal-divider">
+                  <div class="center-element">OR</div>
+                </div>
+
+
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="form3Example3c">Your Email</label>
+                    <input  placeholder="email" required [ngStyle]="{'border': emailsignInrightjobError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsEmailSignIn()" type="email" id="form3Example3c" class="form-control"  [(ngModel)]="EmailSignInRightJob" />
+                    <div *ngIf="emailsignInrightjobError" class="error-message">Email is required</div>
+                    <div *ngIf="isErrorFormEmail" class="error-message">Email address is not in correct format</div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+
+                    <label style="display: flex; justify-content: space-between;" class="form-label" for="form3Example4c">Password  <span style="padding: 5px;" ><mat-icon>help</mat-icon> forgot  <a href="#">New Password </a></span></label>
+                    <input  placeholder="password" required  [ngStyle]="{'border': PasswordsignInrightjobError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsPasswordSignIn()"  type="password" id="form3Example4c" class="form-control" [(ngModel)]="PasswordSignInRightJob" />
+                    <div *ngIf="PasswordsignInrightjobError" class="error-message">Password is required</div>
+                    <div *ngIf="isErrorFormPassword" class="error-message">Password must meet complexity requirements</div>
+                  </div>
+                </div>
+
+
+
+              <button  type="button" class="signinbt"  (click)="signInRightJob()" >
+                Sign in
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+  </div>
+</div>
+
+</div>
+<div  class="displayInfo  overflow-auto" style="margin: 0; padding: 0;" >
+  <img src="../../assets/images/signinrightjob.jpeg" alt="">
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

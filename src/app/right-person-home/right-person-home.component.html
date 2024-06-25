@@ -1,0 +1,367 @@
+<h1 class="headerinscription">Offers emploi</h1>
+<div class="contentAddOffers">
+
+<div class="barserch">
+<div class="addNewOffer">
+
+<div class="serchOfferPosted">
+<div class="serchwith">
+  <label for=""> Domaine</label>
+  <select    class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+    <option value="" disabled selected>Select...</option>
+    <option value="Bachelor's">Bachelor's Degree</option>
+    <option value="Associate">Associate Degree (2-Year Program)</option>
+    <option value="License">Professional License</option>
+    <option value="Master's">Master's Degree</option>
+    <option value="Doctorate">Doctorate (Ph.D.)</option>
+  </select>
+</div>
+
+<div class="serchwith">
+  <label for=""> Job Offer Name</label>
+  <select   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+    <option value="" disabled selected>Select...</option>
+    <option value="Bachelor's">Bachelor's Degree</option>
+    <option value="Associate">Associate Degree (2-Year Program)</option>
+    <option value="License">Professional License</option>
+    <option value="Master's">Master's Degree</option>
+    <option value="Doctorate">Doctorate (Ph.D.)</option>
+  </select>
+</div>
+
+  <div class="serchwith">
+  <label for=""> Post Date</label>
+  <input type="date">
+</div>
+
+
+</div>
+<button class="btnaddNewOffer" (click)="addnewofferbutton()">Add New Offer</button>
+</div>
+</div>
+
+
+<div class="newOffer">
+<div [ngStyle]="{ 'display': btnaddnewofferisclicked ? 'block' : 'none'}"  style="    left: 0;
+right: 0;
+width: 100%;
+height:  100%;
+top: 0;
+bottom: auto;
+position: absolute;
+z-index: 1;
+background-color: rgba(0, 0, 0, 0.418); display: none;"  (click)="blackbgclose($event)" >
+  <div class="card" style="position: absolute; z-index: 2; left: 5%; top: 0; width: 90%; margin: 10px; margin-top: 110px;" >
+    <div class="card-header steptitle">
+      Add New Offer
+    </div>
+    <div class="card-body" style="max-height: 650px;overflow-y: auto;">
+
+      <div class="form-container">
+        <div class="titleofstep">
+          <div style="display: flex;">
+          <div class="line1" ></div>
+        <h3 class="steptitle"  style="margin: 20px;">Information</h3>
+        <div class="line2" ></div>
+          </div>
+      </div>
+
+        <div class="form-group">
+          <div class="form-field" >
+            <label class="titleLable">Domaine Name</label>
+            <div class="input-container"  >
+              <input [ngStyle]="{'border': DomaineNameError ? '1px solid #ff0000' : '1px solid #ccc'}" (input)="checkFieldsDomaineName()"   required   required type="text" placeholder="Domaine Name" [(ngModel)]="DomaineName">
+              <div *ngIf="DomaineNameError" class="error-message">Domaine Name is required</div>
+
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="titleLable">Job Post Name</label>
+            <div class="input-container">
+              <input [ngStyle]="{'border': JobPostNameError ? '1px solid #ff0000' : '1px solid #ccc'}"  required  placeholder="Job post Name" type="text" [(ngModel)]="JobPostName" (input)="checkFieldsJobPostName()">
+              <div *ngIf="JobPostNameError" class="error-message">Job Post Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-field">
+            <label class="titleLable">Country</label>
+            <div class="input-container">
+              <input [ngStyle]="{'border': CountryError ? '1px solid #ff0000' : '1px solid #ccc'}"  required  placeholder="Country" type="text" [(ngModel)]="Country" (input)="checkFieldsCountry()" >
+              <div *ngIf="CountryError" class="error-message">Country is required</div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label  class="titleLable">City</label>
+            <div class="input-container">
+              <input [ngStyle]="{'border': CityError ? '1px solid #ff0000' : '1px solid #ccc'}" required  placeholder="City" type="text" id="contact-information_phone" class="input-success" [(ngModel)]="City" (input)="checkFieldsCity()" >
+              <div *ngIf="CityError" class="error-message">City is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-field">
+            <label class="titleLable">Remote</label>
+            <div class="input-container">
+              <select [ngStyle]="{'border': RemoteError ? '1px solid #ff0000' : '1px solid #ccc'}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="Remote" (input)="checkFieldsRemote()">
+                <option value="" disabled selected>Select...</option>
+                <option value="Hybride">Filtrer par Hybride</option>
+                <option value="Sur_site">Filtrer par Sur site</option>
+                <option value="distance">À distance</option>
+              </select>
+              <div *ngIf="RemoteError" class="error-message">Remote is required</div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="titleLable">Type Contract</label>
+            <div class="input-container">
+              <select [ngStyle]="{'border': TypeContractError ? '1px solid #ff0000' : '1px solid #ccc'}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="TypeContract" (input)="checkFieldsTypeContract()">
+                <option value="" disabled selected>Select...</option>
+                <option value="Hybride">CDI (Contrat à Durée Indéterminée)</option>
+                <option value="Sur_site">CDD (Contrat à Durée Déterminée)</option>
+                <option value="distance">Stage</option>
+                <option value="distance">Alternance</option>
+                <option value="distance">Freelancer</option>
+              </select>
+              <div *ngIf="TypeContractError" class="error-message">Type Contract is required</div>
+            </div>
+          </div>
+        </div>
+
+        <!---->
+        <div class="titleofstep">
+
+         <div style="display: flex;">
+          <div class="line1" ></div>
+          <h3 class="steptitle" style="margin: 20px;">You Will</h3>
+          <div class="line2"></div>
+         </div>
+
+          <div class="input-container">
+            <div class="skills">
+              <div class="addskill">
+                <input  style="width: 80%; margin: 20px;" type="text" [ngStyle]="{'border': YouWillError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsYouWill()" [style.border]="YouWillDuplicate ? '1px solid red' : 'none'"  [(ngModel)]="newYouWill" (keydown.enter)="addYouWill()" placeholder="You Will">
+                <div *ngIf="YouWillDuplicate" style="color: red;">this You Will is already used</div>
+                <div *ngIf="YouWillError" class="error-message">You Wills is required</div>
+              </div>
+              <div class="notification notificationyouwill" style="height: 5rem; width: 80%;">
+                <div class="notiglow"></div>
+                <div class="notiborderglow"></div>
+                <div class="notititle">Info</div>
+                <div class="notibody">Record just one info and click Enter. EX: "Participer à la conception"</div>
+              </div>
+                <div class="form-field">
+                  <div class="input-container">
+              <div style="width: 80%; margin: 20px; color: white" class="skillsAdded">
+              <div id="bgaddnew" *ngFor="let YouWill of YouWill; let i = index">
+                <span >{{ YouWill }}</span>
+                <button (click)="removeYouWill(i)" style="background-color: red;" >x</button>
+              </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+         <!---->
+         <div class="titleofstep">
+          <div style="display: flex;">
+          <div class="line1" ></div>
+          <h3 class="steptitle"  style="margin: 20px;">Requirements</h3>
+          <div class="line2" ></div>
+          </div>
+          <div class="input-container">
+            <div class="skills">
+              <div class="addskill">
+                <input  style="width: 80%; margin: 20px; " type="text" [ngStyle]="{'border': RequirementsError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsRequirements()" [style.border]="RequirementsDuplicate ? '1px solid red' : 'none'"  [(ngModel)]="newRequirements" (keydown.enter)="addRequirements()" placeholder="Requirements">
+                <div *ngIf="RequirementsDuplicate" style="color: red;">this Requirements is already used</div>
+                <div *ngIf="RequirementsError" class="error-message">Requirements is required</div>
+              </div>
+              <div class="notification notificationyouwill" style="height: 5rem; width: 80%;">
+                <div class="notiglow"></div>
+                <div class="notiborderglow"></div>
+                <div class="notititle">Info</div>
+                <div class="notibody">Record just one info and click Enter. EX: "Participer à la conception"</div>
+              </div>
+                <div class="form-field">
+                  <div class="input-container">
+              <div style="width: 80%; margin: 20px; color: white;" class="skillsAdded">
+              <div id="bgaddnew"  *ngFor="let Requirements of Requirements; let i = index">
+                <span>{{ Requirements }}</span>
+                <button (click)="removeRequirements(i)" style="background-color: red;" >x</button>
+              </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+         <!---->
+         <div class="titleofstep">
+          <div style="display: flex;">
+          <div class="line1" ></div>
+          <h3 class="steptitle"  style="margin: 20px;">Bonus points</h3>
+          <div class="line2" ></div>
+          </div>
+          <div class="input-container">
+            <div class="skills">
+              <div class="addskill">
+                <input  style="width: 80%; margin: 20px; " type="text" [ngStyle]="{'border': BonuspointsError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsBonuspoints()" [style.border]="BonuspointsDuplicate ? '1px solid red' : 'none'"  [(ngModel)]="newBonuspoints" (keydown.enter)="addBonuspoints()" placeholder="Bonus points">
+                <div *ngIf="BonuspointsDuplicate" style="color: red;">this Bonus points is already used</div>
+                <div *ngIf="BonuspointsError" class="error-message">Bonus points is required</div>
+              </div>
+              <div class="notification notificationyouwill" style="height: 5rem; width: 80%;">
+                <div class="notiglow"></div>
+                <div class="notiborderglow"></div>
+                <div class="notititle">Info</div>
+                <div class="notibody">Record just one info and click Enter. EX: "Participer à la conception"</div>
+              </div>
+                <div class="form-field">
+                  <div class="input-container">
+              <div style="width: 80%; margin: 20px; color: white;" class="skillsAdded">
+              <div id="bgaddnew"  *ngFor="let Bonuspoints of Bonuspoints; let i = index">
+                <span>{{ Bonuspoints }}</span>
+                <button (click)="removeBonuspoints(i)" style="background-color: red;" >x</button>
+              </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+           <!---->
+           <div class="titleofstep">
+            <div style="display: flex;">
+            <div class="line1" ></div>
+            <h3 class="steptitle"  style="margin: 20px;">Career Benefits</h3>
+            <div class="line2" ></div>
+            </div>
+            <div class="input-container">
+              <div class="skills">
+                <div class="addskill">
+                  <input  style="width: 80%; margin: 20px; " type="text" [ngStyle]="{'border': CareerBenefitsError ? '1px solid #ff0000' : '1px solid #ccc'}"  (input)="checkFieldsCareerBenefits()" [style.border]="CareerBenefitsDuplicate ? '1px solid red' : 'none'"  [(ngModel)]="newCareerBenefits" (keydown.enter)="addCareerBenefits()" placeholder="Career Benefits">
+                  <div *ngIf="CareerBenefitsDuplicate" style="color: red;">this Career Benefits is already used</div>
+                  <div *ngIf="CareerBenefitsError" class="error-message">Career Benefits is required</div>
+                </div>
+                <div class="notification notificationyouwill" style="height: 5rem; width: 80%;">
+                  <div class="notiglow"></div>
+                  <div class="notiborderglow"></div>
+                  <div class="notititle">Info</div>
+                  <div class="notibody">Record just one info and click Enter. EX: "Participer à la conception"</div>
+                </div>
+                  <div class="form-field">
+                    <div class="input-container">
+                <div style="width: 80%; margin: 20px; color: white;" class="skillsAdded">
+                <div id="bgaddnew"  *ngFor="let CareerBenefits of CareerBenefits; let i = index">
+                  <span>{{ CareerBenefits }}</span>
+                  <button (click)="removeCareerBenefits(i)" style="background-color: red;" >x</button>
+                </div>
+              </div>
+
+              </div>
+              </div>
+              </div>
+              </div>
+          </div>
+
+
+
+          <div class="newOffer">
+            <div class="card"  [ngStyle]="{ 'border': TestISimportent ? '2px solid red' : '2px solid #ccc'}" >
+              <div class="card-header steptitle">
+               <span>Test IN</span>
+                <button style="margin-left: 25px;" (click)="newskilltest()">+</button>
+              </div>
+              <div style="    max-height: 300px;
+              overflow-y: auto;">
+              <div style="padding: 10px; margin: 10px;"  class="WorkExperience"  *ngFor="let skillTest of skillsTest; let i = index">
+                <h6 class="steptitle">Test {{i+1}}</h6>
+                <div class="form-group" >
+
+                <div class="form-field" >
+                  <label class="titleLable">Skill</label>
+                  <div class="input-container"  >
+                    <input [ngStyle]="{'border': skillTestskillError[i] ? '1px solid #ff0000' : '1px solid #ccc'}" (input)="checkFieldsskillTestskill(i)" required   required type="text" placeholder="First Name" [(ngModel)]="skillTest.skill">
+                    <div *ngIf="skillTestskillError[i]" class="error-message">Level cherched is required</div>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label class="titleLable">Level cherched</label>
+                  <div class="input-container">
+                    <select [ngStyle]="{'border': skillTestLevelError[i] ? '1px solid #ff0000' : '1px solid #ccc'}" (input)="checkFieldsskillTestLevel(i)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="skillTest.Level" >
+                      <option value="" disabled selected>Select...</option>
+                      <option value="Beginner">Beginner</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Advanced">Advanced</option>
+                    </select>
+                    <div *ngIf="skillTestLevelError[i]" class="error-message">Level cherched is required</div>
+                  </div>
+                </div>
+
+              </div>
+              <button style="margin-left: 25px; background-color: red;" (click)="deleteskillTest(i)">delete</button>
+            </div>
+          </div>
+            </div>
+          </div>
+
+
+
+
+<div style="display: flex; justify-content: space-between; width: 100%; padding: 20px; background-color: rgba(127, 255, 212, 0.329); border-radius: 17px;">
+  <button style="width: 25%; background-color: red;" (click)="DeleteOffer()">Delete</button>
+  <button style="width: 25%; background-color: green;" (click)="ADDOFFERNEWTOOFFERS()">ADD</button>
+
+</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="def" >
+  <h3 class="steptitle">Add New Offer</h3>
+</div>
+
+
+<div class="offeradded" >
+<div class="border-container">
+  <div class="border">
+    <span class="title">IT</span>
+    <div>joboffer</div>
+  </div>
+</div>
+
+<div class="border-container">
+  <div class="border">
+    <span class="title">RH</span>
+    <div>joboffer</div>
+  </div>
+</div>
+
+<div class="border-container">
+  <div class="border">
+    <span class="title">Marketing</span>
+    <div>joboffer</div>
+  </div>
+</div>
+
+<div class="border-container">
+  <div class="border">
+    <span class="title">Hospitality</span>
+    <div>joboffer</div>
+  </div>
+</div>
+
+
+</div>
+
+
+</div>

@@ -1,0 +1,480 @@
+@import "../app.component.css";
+
+
+/* General Styles */
+.body{
+  display: flex;
+  place-items: center;
+    zoom: 90%; /* Set the zoom level to 90% */
+
+}
+
+
+/**/
+
+.sidebar {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  display: block;
+
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+/***/
+#main {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#main:hover {
+  .line1,
+  .line2 {
+    background-color: rgb(0, 0, 0); /* Adjust color as needed */
+  }
+  .line1 {
+    transform: rotate(50deg); /* Adjust rotation angle as needed */
+  }
+  .line2 {
+    transform: rotate(-50deg); /* Adjust rotation angle as needed */
+  }
+}
+
+.linetop,
+.linebottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.line1,
+.line2 {
+  width: 50%; /* Adjust width as needed */
+  height: 8px;
+  background-color: gainsboro; /* Adjust color as needed */
+  border-radius: 14px;
+}
+
+
+.line1 {
+  transform: rotate(90deg); /* Adjust rotation angle as needed */
+}
+.line2 {
+  transform: rotate(90deg); /* Adjust rotation angle as needed */
+}
+/*  this.renderer.setStyle(line1, 'transform', 'rotate(50deg)');
+    this.renderer.setStyle(line2, 'transform', 'rotate(-50deg)');*/
+.linetop {
+  position: absolute;
+  top: 0;
+}
+
+.linebottom {
+  position: absolute;
+  bottom: 0;
+}
+
+
+
+
+/****/
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/**/
+.container{
+  display: block;
+  background-color: rgba(73, 139, 125, 0.288);
+  border-radius: 14px;
+  padding: 10px;
+  margin:10px;
+  margin-left: 5px;
+  width: 20%;
+}
+
+.search-bar {
+  background: #006d66; /* White background for the search bar */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners for the search bar */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for the search bar */
+}
+
+/* Enhancing the input and button look */
+.form-control {
+  border-radius: 5px; /* Slightly rounded borders for inputs */
+  border: 1px solid #ced4da; /* Consistent border color */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Default Bootstrap primary color */
+  border-color: #007bff; /* Matching border color */
+  border-radius: 5px; /* Rounded borders for button */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  border-color: #004085;
+}
+
+
+  .search-bar {
+    width: 100%; /* Full width on extra small screens */
+}
+
+.row .col-md-4, .row .col-md-3, .row .col-md-2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.btn {
+    margin-top: 10px; /* Space between inputs and button on small screens */
+}
+
+
+.form-label{
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+/****/
+.serchtypes{
+  margin: 5px;
+  padding: 5px;
+}
+
+.serchtypes button {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 14px;
+  background-color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.serchtypes button:hover {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 14px;
+  border-color: #006d66;
+  background-color: #006d66;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+#btnserch{
+  background-color: #6DA5C0;
+}
+#btnserchdiv{
+ display: flex;
+}
+
+/* CSS */
+
+
+
+/****/
+.joboffer{
+
+  width: 100%;
+  border-radius: 15px;
+}
+
+#navigation{
+  display: flex;
+  justify-content: space-between;
+}
+#navigation button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #7e97b8;
+  background-color: #e0e8ef;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: rgba(255, 255, 255, 0.333);
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+ }
+
+ #navigation button:hover {
+  color: #004eb4;
+  background-color: #E5EDF5;
+  box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgba(55, 94, 141, 0.767);
+ }
+
+ #navigation button:active {
+  box-shadow: none;
+ }
+
+
+ /**/
+ .contentoffer{
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+}
+
+.allofferjobserched{
+  width: 50%;
+
+}
+.offers {
+  padding: 5px;
+  margin: 5px;
+}
+
+.offer{
+border-radius: 14px;
+  background-color:  rgb(255, 255, 255);
+  box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgb(95 157 231 / 48%);
+  padding: 5px; margin: 15px;
+  cursor: pointer;
+
+}
+.offer:hover{
+  box-shadow: -4px -2px 34px 3px #ffffffc7, 4px 2px 34px 2px rgb(95 157 231 / 58%);
+}
+
+
+#serchbtnjob {
+  text-align: center;
+}
+
+#serchbtnjob button {
+  padding: 10px 20px;
+  background-color: rgb(138, 200, 224);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+#serchbtnjob button:hover {
+  background-color: rgb(64, 123, 146);
+}
+
+.active {
+
+
+  width: 100%;
+  background-color: rgb(213 229 226);
+  /* Connective styling */
+  border-left: 4px solid #006d66;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  cursor: pointer;
+}
+
+.infoofjoboffer {
+  background-color:rgb(213 229 226);
+  width: 100% !important;
+  border-radius: 18px;
+  display: ruby;
+}
+
+
+/****/
+/* Style for the card that displays the job offer details */
+
+.cardCompany {
+  box-shadow:  0 4px 8px rgba(0,0,0,0.4); /* subtle shadow for depth */
+  background-color:white; /* white background for the card */
+  border-radius: 10px; /* rounded corners */
+  width: 98%; /* fit to the container width, adjust as necessary */
+
+  padding: 20px; /* spacing inside the card */
+  margin: 10px 10px 0 10px; /* external spacing */
+  border:none;
+  /*
+  border-top: 2px solid greenyellow;
+  border-left: 2px solid greenyellow;
+  border-right: 2px solid greenyellow;
+*/
+}
+
+
+
+/* Style for the title of the job offer */
+.cardCompany h3 {
+  color: #333; /* dark grey color for text */
+  font-size: 24px; /* larger font size for heading */
+  margin-bottom: 10px; /* space below the title */
+}
+
+/* Paragraph style for the job details */
+.cardCompany p {
+  color: #666; /* lighter grey color for text */
+  font-size: 16px; /* standard font size */
+  line-height: 1.5; /* line height for readability */
+  margin-bottom: 8px; /* space between paragraphs */
+}
+
+/* Additional style if you want to emphasize certain elements */
+.cardCompany p span {
+  font-weight: bold; /* bold for emphasis */
+}
+
+
+/****/
+.logocompanyimage img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* Ensures the image is displayed as a block element */
+  margin-left: auto; /* Aligns the image to the right */
+  margin-right: 100px; /* Aligns the image to the left */
+  border-radius: 12px; /* Adds a border radius for rounded corners */
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect */
+}
+
+
+
+/*****/
+.discriptionoffer{
+  background-color: white;
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  max-height: 60vh; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds maximum height */
+ /* border-bottom: 2px solid greenyellow;
+  border-left: 2px solid greenyellow;
+  border-right: 2px solid greenyellow;*/
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+
+}
+/*
+/* Hide the default scrollbar */
+/*
+.discriptionoffer::-webkit-scrollbar {
+  display: none;
+}*/
+
+/* Track */
+/*
+.discriptionoffer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*/
+/* Handle */
+/*
+.discriptionoffer::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*/
+/* Handle on hover */
+/*
+.discriptionoffer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}*/
+/* Custom scrollbar styling for .descriptionoffer */
+.descriptionoffer::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+  height: 8px; /* Adjust the height of the scrollbar for horizontal scroll */
+}
+
+.descriptionoffer::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey track */
+  border-radius: 4px; /* Optional: Adds rounded corners to the track */
+  box-shadow: inset 0 0 5px grey; /* Optional: Adds subtle shadow inside the track */
+}
+
+.descriptionoffer::-webkit-scrollbar-thumb {
+  background: #888; /* Dark grey thumb */
+  border-radius: 4px; /* Rounded corners on the scrollbar handle */
+  border: 2px solid transparent; /* Optional: Forces background to remain contained */
+  background-clip: padding-box; /* Ensures the background is clipped to the padding box */
+}
+
+.descriptionoffer::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker shade of grey when hovered */
+}
+
+
+.job-offer {
+  background: linear-gradient(to bottom , rgb(255, 255, 255),#357e726e);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.description-offer h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.description-offer ul {
+  margin-bottom: 15px;
+}
+
+.description-offer ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.description-offer ul li::marker {
+  color: #007bff; /* Change bullet point color */
+}
+
+.description-offer ul li:last-child {
+  margin-bottom: 0;
+}
+
+
+
+
+/*******/

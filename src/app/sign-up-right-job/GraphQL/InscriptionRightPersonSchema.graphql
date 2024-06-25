@@ -1,0 +1,398 @@
+schema {
+  query: QueryResolver
+  mutation: MutationResolver
+}
+
+type QueryResolver {
+  person(where: PersonFilterInput, order: [PersonSortInput!]): [Person!]!
+}
+
+type MutationResolver {
+  createPersonAsync(input: PersonInput!): Person!
+}
+
+input PersonFilterInput {
+  and: [PersonFilterInput!]
+  or: [PersonFilterInput!]
+  id: IntOperationFilterInput
+  firstName: StringOperationFilterInput
+  lastName: StringOperationFilterInput
+  mailAddress: StringOperationFilterInput
+  phoneNumber: StringOperationFilterInput
+  linkedIn: StringOperationFilterInput
+  image: StringOperationFilterInput
+  address: StringOperationFilterInput
+  country: StringOperationFilterInput
+  city: StringOperationFilterInput
+  website: StringOperationFilterInput
+  targetTitle: StringOperationFilterInput
+  professionalSummary: StringOperationFilterInput
+  password: StringOperationFilterInput
+  lastConnection: DateTimeOperationFilterInput
+  certifications: ListFilterInputTypeOfCertificationFilterInput
+  educations: ListFilterInputTypeOfEducationFilterInput
+  experiences: ListFilterInputTypeOfExperienceFilterInput
+  languages: ListFilterInputTypeOfLanguageFilterInput
+  skills: ListFilterInputTypeOfSkillFilterInput
+  interest_Hobbies: ListFilterInputTypeOfInterest_HobbieFilterInput
+}
+
+input PersonSortInput {
+  id: SortEnumType
+  firstName: SortEnumType
+  lastName: SortEnumType
+  mailAddress: SortEnumType
+  phoneNumber: SortEnumType
+  linkedIn: SortEnumType
+  image: SortEnumType
+  address: SortEnumType
+  country: SortEnumType
+  city: SortEnumType
+  website: SortEnumType
+  targetTitle: SortEnumType
+  professionalSummary: SortEnumType
+  password: SortEnumType
+  lastConnection: SortEnumType
+}
+
+input IntOperationFilterInput {
+  eq: Int
+  neq: Int
+  in: [Int]
+  nin: [Int]
+  gt: Int
+  ngt: Int
+  gte: Int
+  ngte: Int
+  lt: Int
+  nlt: Int
+  lte: Int
+  nlte: Int
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input DateTimeOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime]
+  nin: [DateTime]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
+}
+
+input ListFilterInputTypeOfCertificationFilterInput {
+  all: CertificationFilterInput
+  none: CertificationFilterInput
+  some: CertificationFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfEducationFilterInput {
+  all: EducationFilterInput
+  none: EducationFilterInput
+  some: EducationFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfExperienceFilterInput {
+  all: ExperienceFilterInput
+  none: ExperienceFilterInput
+  some: ExperienceFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfLanguageFilterInput {
+  all: LanguageFilterInput
+  none: LanguageFilterInput
+  some: LanguageFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfSkillFilterInput {
+  all: SkillFilterInput
+  none: SkillFilterInput
+  some: SkillFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfInterest_HobbieFilterInput {
+  all: Interest_HobbieFilterInput
+  none: Interest_HobbieFilterInput
+  some: Interest_HobbieFilterInput
+  any: Boolean
+}
+
+enum SortEnumType {
+  ASC
+  DESC
+}
+
+"""
+The `DateTime` scalar represents an ISO-8601 compliant date time type.
+"""
+scalar DateTime @specifiedBy(url: "https://www.graphql-scalars.com/date-time")
+
+input CertificationFilterInput {
+  and: [CertificationFilterInput!]
+  or: [CertificationFilterInput!]
+  id: IntOperationFilterInput
+  certificationName: StringOperationFilterInput
+  organization: StringOperationFilterInput
+  dateOfCompletion: DateOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input EducationFilterInput {
+  and: [EducationFilterInput!]
+  or: [EducationFilterInput!]
+  id: IntOperationFilterInput
+  institutionName: StringOperationFilterInput
+  fieldOfStudy: StringOperationFilterInput
+  location: StringOperationFilterInput
+  type: StringOperationFilterInput
+  startDate: DateOperationFilterInput
+  endDate: DateOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input ExperienceFilterInput {
+  and: [ExperienceFilterInput!]
+  or: [ExperienceFilterInput!]
+  id: IntOperationFilterInput
+  companyName: StringOperationFilterInput
+  position: StringOperationFilterInput
+  location: StringOperationFilterInput
+  type: StringOperationFilterInput
+  startDate: DateOperationFilterInput
+  endDate: DateOperationFilterInput
+  companyDescription: StringOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input LanguageFilterInput {
+  and: [LanguageFilterInput!]
+  or: [LanguageFilterInput!]
+  id: IntOperationFilterInput
+  langage: StringOperationFilterInput
+  level: StringOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input SkillFilterInput {
+  and: [SkillFilterInput!]
+  or: [SkillFilterInput!]
+  id: IntOperationFilterInput
+  skill: StringOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input Interest_HobbieFilterInput {
+  and: [Interest_HobbieFilterInput!]
+  or: [Interest_HobbieFilterInput!]
+  id: IntOperationFilterInput
+  interestAndHobbie: StringOperationFilterInput
+  personID: IntOperationFilterInput
+  person: PersonFilterInput
+}
+
+input DateOperationFilterInput {
+  eq: Date
+  neq: Date
+  in: [Date]
+  nin: [Date]
+  gt: Date
+  ngt: Date
+  gte: Date
+  ngte: Date
+  lt: Date
+  nlt: Date
+  lte: Date
+  nlte: Date
+}
+
+"""
+The `Date` scalar represents an ISO-8601 compliant date type.
+"""
+scalar Date
+
+input PersonInput {
+  firstName: String!
+  lastName: String!
+  mailAddress: String!
+  phoneNumber: String!
+  linkedIn: String!
+  image: String!
+  address: String!
+  country: String!
+  city: String!
+  website: String!
+  targetTitle: String!
+  professionalSummary: String!
+  password: String!
+  lastConnection: DateTime!
+  certifications: [CertificationInput!]!
+  educations: [EducationInput!]!
+  experiences: [ExperienceInput!]!
+  languages: [LanguageInput!]!
+  skills: [SkillInput!]!
+  interest_Hobbies: [Interest_HobbieInput!]!
+}
+
+type Mutation {
+  createPerson(input: PersonInput!): Person!
+}
+
+type Person {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  mailAddress: String!
+  phoneNumber: String!
+  linkedIn: String!
+  image: String!
+  address: String!
+  country: String!
+  city: String!
+  website: String!
+  targetTitle: String!
+  professionalSummary: String!
+  password: String!
+  lastConnection: DateTime!
+  certifications: [Certification!]!
+  educations: [Education!]!
+  experiences: [Experience!]!
+  languages: [Language!]!
+  skills: [Skill!]!
+  interest_Hobbies: [Interest_Hobbie!]!
+}
+
+input EducationInput {
+  institutionName: String!
+  fieldOfStudy: String!
+  location: String!
+  typeeducations: String!
+  startDate: Date!
+  endDate: Date!
+  personID: Int!
+  person: PersonInput!
+}
+
+input CertificationInput {
+  certificationName: String!
+  organization: String!
+  dateOfCompletion: Date!
+  personID: Int!
+  person: PersonInput!
+}
+
+input ExperienceInput {
+  companyName: String!
+  position: String!
+  location: String!
+  typeexperience: String!
+  startDate: Date!
+  endDate: Date!
+  companyDescription: String!
+  personID: Int!
+  person: PersonInput!
+}
+
+input LanguageInput {
+  language: String!
+  level: String!
+  personID: Int!
+  person: PersonInput!
+}
+
+input SkillInput {
+  skill: String!
+  personID: Int!
+  person: PersonInput!
+}
+
+input Interest_HobbieInput {
+  interestAndHobbie: String!
+  personID: Int!
+  person: PersonInput!
+}
+
+type Certification {
+  id: Int!
+  certificationName: String!
+  organization: String!
+  dateOfCompletion: Date!
+  personID: Int!
+  person: Person!
+}
+
+type Education {
+  id: Int!
+  institutionName: String!
+  fieldOfStudy: String!
+  location: String!
+  typeeducations: String!
+  startDate: Date!
+  endDate: Date!
+  personID: Int!
+  person: Person!
+}
+
+type Experience {
+  id: Int!
+  companyName: String!
+  position: String!
+  location: String!
+  typeexperience: String!
+  startDate: Date!
+  endDate: Date!
+  companyDescription: String!
+  personID: Int!
+  person: Person!
+}
+
+type Language {
+  id: Int!
+  langage: String!
+  level: String!
+  personID: Int!
+  person: Person!
+}
+
+type Skill {
+  id: Int!
+  skill: String!
+  personID: Int!
+  person: Person!
+}
+
+type Interest_Hobbie {
+  id: Int!
+  interestAndHobbie: String!
+  personID: Int!
+  person: Person!
+}

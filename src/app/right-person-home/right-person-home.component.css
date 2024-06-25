@@ -1,0 +1,191 @@
+@import "../app.component.css";
+
+.border-container {
+  text-align: center;
+  margin: 10px;
+}
+
+.border {
+  border-top: 2px solid black;
+  padding: 5px 0;
+  position: relative;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  padding: 0 10px;
+  position: absolute;
+  top: -12px; /* Adjust this value to position the title within the border */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/***/
+/* Styling for the bar-like design */
+.addNewOffer {
+  display: flex;
+  background-color: #006d66;
+  width: 80%;
+  border-radius: 48px 97px 90px 568px;
+  justify-content: space-between;
+
+}
+
+.barserch {
+  display: flex;
+  justify-content: center;
+}
+
+.serchwith{
+  display: block;
+  text-align: start;
+  color: aliceblue;
+  margin: 5px;
+
+}
+.serchwith select{
+padding: 10px;
+cursor: pointer;
+}
+.serchwith input{
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btnaddNewOffer {
+  background-color: #006d66;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.serchOfferPosted {
+  display: flex;
+  padding: 15px;
+}
+
+/* Style the labels and selects as needed */
+label, select, input[type="date"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Additional styling for the selects (optional) */
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+/*|||||||||||||||||||||||*/
+
+
+.contentAddOffers {
+  text-align: center;
+}
+
+.contentAddOffers button {
+  padding: 10px 20px;
+  background-color: rgb(138, 200, 224);
+  color: white;
+  border: none;
+  margin: 5px;
+  border-radius: 58px 40px 42px 84px;
+  /* border-top-right-radius: 155px; */
+  cursor: pointer;
+  width: 10%;
+  transition: background-color 0.3s ease;
+}
+
+.contentAddOffers button:hover {
+  background-color: rgb(64, 123, 146);
+}
+
+
+.newOffer{
+  margin: 20px;
+}
+
+
+
+/****/
+
+.ulildis h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.ulildis ul {
+  margin: 15px;
+  text-align: start;
+  background-color: gainsboro;
+}
+
+.ulildis ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.ulildis ul li::marker {
+  color: #007bff; /* Change bullet point color */
+}
+
+.ulildis ul li:last-child {
+  margin-bottom: 0;
+}
+
+
+/************/
+.notificationyouwill::before{
+  background-color: gainsboro;
+}
+.card{
+  box-shadow: -5px 0 17px 1px #00000062;
+}
+
+.line1{
+border-top: 4px solid rgb(32, 106, 119);
+flex-grow: 1;
+margin-top: auto;
+padding: 15px;
+border-top-left-radius: 14px;
+}
+
+.line2{
+  border-top: 4px solid rgb(32, 106, 119);
+  flex-grow: 1;
+  margin-top: auto;
+  padding: 15px;
+  border-top-right-radius: 14px;
+  }
+
+
+  /****/
+  #bgaddnew{
+    background-color: rgba(190, 173, 135, 0.377);
+  }
+
+
+
+  /**/
+
+  .offeradded{
+    display: none;
+  }
+
+  .def{
+    background-color: rgba(220, 220, 220, 0.377);
+    border-left: 12px solid rgb(27, 131, 150);
+
+  }
+  .def h3{
+          padding: 219px;
+  }

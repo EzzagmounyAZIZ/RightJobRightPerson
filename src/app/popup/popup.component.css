@@ -1,0 +1,58 @@
+.modal-header {
+  background-color: #f9f9f9;
+  padding: 15px;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+  justify-content: center;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+
+.card {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+}
+
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  justify-content: space-between;
+  display: flex;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+button {
+  color: #fff;
+  background-color: rgb(67 164 158);
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  border: none;
+  margin: 5px;
+}
+button:hover {
+  padding: .375rem .75rem;
+  background-color: #00635c;
+}
+
+
